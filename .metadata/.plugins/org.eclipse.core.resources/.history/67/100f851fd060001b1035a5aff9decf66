@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+        <form action="/result" method="POST">
+            <input type="radio" name="type" value="1">新品
+            <input type="radio" name="type" value="2">中古
+
+            <select name="selectedItem">
+                <option name="category" value="30000">iphone6</option>
+                <option name="category" value="40000">iphone7</option>
+                <option name="category" value="50000">iphone8</option>
+            </select>
+
+            <input type="checkbox" name="status" value="3000">水濡れ
+            <input type="checkbox" name="status" value="3000">傷
+            <input type="checkbox" name="status" value="3000">画面割れ
+            <input type="submit" value="送信">
+        </form>
+   
+</body>
+</html>

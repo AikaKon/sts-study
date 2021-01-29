@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Sample Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+	<h1>査定結果</h1>
+	<div>Post Data</div>
+	
+	<span th:text="${type}"></span>
+	<br />
+	<span th:text="${status}"></span>
+	<br />
+	<span th:text="${selectedItem}"></span>
+
+</body>
+</html>

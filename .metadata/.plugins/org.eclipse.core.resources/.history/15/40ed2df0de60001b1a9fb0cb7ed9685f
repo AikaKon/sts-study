@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>素数判定マシーン</h1>
+  <!--   <div th:if="${boolean}">
+        <p th:text="${num} + 'は素数です。'"></p>
+    </div>
+    <div>
+        <p th:text="${num} + 'は素数ではありません。'"></p>
+    </div> -->
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="result">
+		<span>name: </span>
+		<span th:text="${type}"></span>
+		<br />
+		<span>age: </span>
+		<span th:text="${status}"></span>
+		<br />
+	</form>
+</body>
+</html> -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Sample Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>査定結果</h1>
+	<div>
+    	Post Data
+	</div>
+	<br />
+	<form method="post" action="formPost">
+		<span>name: </span>
+		<span th:text="${type}"></span>
+		<br />
+		<span>age: </span>
+		<span th:text="${status}"></span>
+		<br />
+		<span th:text="${selectedItem}"></span>
+	</form>
+</body>
+</html>
