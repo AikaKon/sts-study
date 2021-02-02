@@ -45,15 +45,16 @@ public class MainController {
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)
 	public ModelAndView indexPost(ModelAndView mv, @ModelAttribute("formModel") UserData userData) {
+		// 保存
 		repository.saveAndFlush(userData);
-		System.out.println("Post動いた");
+		
 		Date dateObj = new Date();
 		 SimpleDateFormat format = new SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );
 		 // 日時情報を指定フォーマットの文字列で取得
 		 String display = format.format( dateObj );
 		 mv.addObject("data", display);
-		
 		 System.out.println(display);
+		 System.out.println("Post動いた");
 		return new ModelAndView("redirect:/");
 	}
 	

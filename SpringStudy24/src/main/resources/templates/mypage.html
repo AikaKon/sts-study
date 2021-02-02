@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>マイページ</h1>
+  <!--   <table>
+        <tr>
+            <th>登録者番号</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+        </tr>
+        <tr th:object="${user}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{mail}"></td>
+        </tr>
+    </table> -->
+    <table>
+        <tr>
+            <th>登録者番号</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+        </tr>
+        <tr th:each=" u : ${user}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.name}"></td>
+            <td th:text="${u.mail}"></td>
+        </tr>
+    </table>
+    <table>
+        <form action="/mypage/" method="POST" th:object="${userData}">
+            <input type="hidden" name="id" th:value="*{id}">
+            <tr>
+                <td><label>名前</label></td>   
+                <td><input type="text" name="name" th:value="*{name}"></td>
+            </tr>
+            <tr>
+                <td><label>メールアドレス</label></td>
+                <td><input type="text" name="mail" th:value="*{mail}"></td>
+            </tr>
+            <tr>
+                <td><label>パスワード</label></td>
+                <td><input type="password" name="password" th:value="*{password}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="更新"></td>
+            </tr>
+        </form>
+    </table>
+    
+</body>
+</html>

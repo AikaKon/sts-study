@@ -20,5 +20,17 @@ public class MainController {
 		System.out.println(customers.get(0)[0]);
 		return mv;
 	}
+	@RequestMapping(value="/a")
+	public ModelAndView indexPost2(ModelAndView mv) {
+		ArrayList<String[]> customers = new ArrayList<String[]>();
+		customers.add(new String[] {"アイウエオ","🐈","🐶"});
+		customers.add(new String[] {"アイウエオ","🐈","🐶"});
+		customers.add(new String[] {"アイウエオ","🐈","🐶"});
+		mv.addObject("customers", customers);
+		mv.setViewName("index");
+		System.out.println(customers.get(0));
+		System.out.println(customers.get(0)[0]);
+		return mv;
+	}
 
 }

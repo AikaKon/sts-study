@@ -26,7 +26,10 @@ public class MainController {
 		
 		if(type.equals("中古")) {
 			selectedItem *= 0.7;
-//			selectedItem -= status;
+			if(status != null) {
+				double db = Double.parseDouble(status);
+				selectedItem -= db;
+			}
 		}
 		// テンプレートを指定
 		mv.setViewName("result");
@@ -39,6 +42,8 @@ public class MainController {
 		// 返却
 		return mv;
 	}
+	
+	//※htmlの値を取得したい、value複数取得したい、複数あった場合の計算もしたい
 	
 //	// GET用のパラメータを受け取る
 //	@RequestMapping(value = {"/result"}, method = {RequestMethod.GET})
