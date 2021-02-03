@@ -36,15 +36,16 @@
  -->
     <form action="/" method="POST" th:object="${formModel}">
         <h1>匿名投稿</h1>
-        <label>タイトル</label>
-        <input type="text" name="title">
-        <label>本文</label>
-        <input type="text" name="message">
-        <input type="hidden" name="data" th:text="${text}">
+        <label>タイトル</label><br>
+        <input type="text" name="title"><br>
+        <label>本文</label><br>
+        <textarea name="message" id="" cols="30" rows="10"></textarea><br>
+      	<input type="hidden" name="data" th:text="${data}">
         <input type="submit" value="投稿する">
     </form>
     <h1>内容</h1>
     <section>
+     
         <div th:each="c : ${customers}">
             <label>タイトル</label>
             <p th:text="${c.title}"></p>
