@@ -10,24 +10,20 @@ public class MainController {
 	
 	@RequestMapping("/{num}")
 	public ModelAndView index(ModelAndView mv, @PathVariable int num) {
+		mv.addObject("num", num);
+		mv.setViewName("index");
 		if (num < 2) {
-			mv.addObject("num", num);
 			mv.addObject("boolean", false);
-			mv.setViewName("index");
 			return mv;
 		}
 
 		for (int i = 2; i < num; i++) {
 			if (num % i == 0) {
-				mv.addObject("num", num);
 				mv.addObject("boolean", false);
-				mv.setViewName("index");
 				return mv;
 		     }
 		}
 		mv.addObject("boolean", true);
-		mv.addObject("num", num);
-		mv.setViewName("index");
 		return mv;
 	}
 

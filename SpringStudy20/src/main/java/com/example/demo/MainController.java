@@ -21,24 +21,27 @@ public class MainController {
 	@RequestMapping(value = "/result", method = RequestMethod.POST)
 	public ModelAndView postTest1(ModelAndView mv,
 			@RequestParam(value="type") String type,
-			@RequestParam(value="status", required = false) String status,
+			@RequestParam(value="status1", defaultValue = "0") int status1,
+			@RequestParam(value="status2", defaultValue = "0") int status2,
+			@RequestParam(value="status3", defaultValue = "0") int status3,
 			@RequestParam(value="selectedItem") double selectedItem) {
 		
+		System.out.println(status1);
+		System.out.println(status2);
+		System.out.println(status3);
 		if(type.equals("中古")) {
 			selectedItem *= 0.7;
-			if(status != null) {
-				double db = Double.parseDouble(status);
-				selectedItem -= db;
-			}
+			selectedItem = selectedItem - status1 - status2 - status3;
 		}
 		// テンプレートを指定
 		mv.setViewName("result");
 		
 		// modelに設定して画面に表示するようにする
 		mv.addObject("type", type);
-		mv.addObject("status", status);
-		mv.addObject("selectedItem", selectedItem);
-		System.out.println(status);
+		mv.addObject("status1", status1);
+		mv.addObject("status2", status2);
+		mv.addObject("status3", status3);
+		mv.addObject("selectedItem", (int)selectedItem);
 		// 返却
 		return mv;
 	}
