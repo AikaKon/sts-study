@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" method="POST" th:object="${formModel}">
+        <h1>SNS</h1>
+        <label>名前</label>
+        <input type="text" name="name" id=""><br>
+        <textarea name="message" id="" cols="100" rows="10"></textarea><br>
+        <input type="submit" value="投稿">
+    </form>
+
+    <table>
+        <tr> 
+            <th>名前</th>
+            <th>投稿者ID</th>   
+            <th>本文</th>
+            <th>投稿時間</th>
+        </tr>
+        <tr  th:each="c : ${customers}">
+            <td th:text="${c.name}"></td>
+            <td th:text="${c.id}"></td>
+            <td class="w-nomal" th:text="${c.message}"></td>
+            <td th:text="${c.data}"></td>
+            <td>    
+                <form action="/delete/" method="POST">
+                    <input type="hidden" name="id" th:value="${c.id}">
+                    <input type="submit" value="削除">
+                </form>
+            </td>
+            <td>
+             <a th:href="@{/mypage/{id}(id = ${c.id})}"><button>更新</button></a>
+            </td>
+           
+        </tr>
+    </table>
+    
+</body>
+</html>
