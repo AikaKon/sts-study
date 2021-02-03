@@ -35,24 +35,25 @@
     </table> 
  -->
     <form action="/" method="POST" th:object="${formModel}">
-        <h1>匿名投稿</h1>
+        <h1 class="title">匿名投稿</h1>
         <label>タイトル</label><br>
         <input type="text" name="title"><br>
         <label>本文</label><br>
-        <textarea name="message" id="" cols="30" rows="10"></textarea><br>
+        <textarea name="message" id="" cols="50" rows="10"></textarea><br>
       	<input type="hidden" name="data" th:text="${data}">
         <input type="submit" value="投稿する">
     </form>
     <h1>内容</h1>
     <section>
-     
-        <div th:each="c : ${customers}">
-            <label>タイトル</label>
-            <p th:text="${c.title}"></p>
-            <label>投稿時間</label>
-            <p th:text="${c.data}"></p>
-            <label>本文</label>
-            <p th:text="${c.message}"></p>
+        <div class="box2" th:each="c : ${customers}">
+        	<!-- <label>id</label>
+        	<p class="w-nomal" th:text="${c.id}"></p> -->
+         	<label>投稿時間</label><hr>
+            <p class="w-nomal" th:text="${c.data}"></p>
+            <label>タイトル</label><hr>
+            <p class="w-nomal" th:text="${c.title}"></p>
+            <label>本文</label><hr>
+            <p  class="w-nomal"th:text="${c.message}"></p>
         </div>
     </section>
     
