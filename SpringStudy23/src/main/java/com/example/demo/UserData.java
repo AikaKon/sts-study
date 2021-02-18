@@ -1,11 +1,18 @@
 package com.example.demo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.crypto.Data;
 
 @Entity
@@ -25,13 +32,17 @@ public class UserData {
 //	@Column(nullable = false)
 //	private String pass;
 	
-	@Column
+	@Column(nullable = false)
+	@NotBlank
+//	@Size(min=1 , max=100 )
 	private String message;
 	
-	@Column 
+	@Column(nullable = false) 
 	private String data;
 	
-	@Column
+	@Column(nullable = false)
+	@NotBlank
+//	@Size(min=1 , max=20 )
 	private String title;
 	
 	public long getId() { 
@@ -82,5 +93,4 @@ public class UserData {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 }
