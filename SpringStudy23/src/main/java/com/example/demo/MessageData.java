@@ -33,6 +33,7 @@ public class MessageData {
 	@ManyToOne         //多対１の関係。
 	private UserData userData;
 	
+	
 	public String getMessage() {
 		return message;
 	}

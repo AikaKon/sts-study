@@ -35,7 +35,18 @@
         </tr>
     </table> 
  -->
-    <form id="button" action="/" method="POST" th:object="${formModel}">
+ 	 <form id="button" action="/" method="POST" th:object="${User}">
+        <h1 class="title">登録</h1>
+        <label>名前</label><br>
+        <input type="text" id="name" name="name" th:field="*{name}"><br>
+        <label>メールアドレス</label><br>
+        <input name="mail" id="mail" th:field="*{mail}"><br>
+        <label>年齢</label><br>
+        <input name="age" id="age" th:field="*{age}"><br>
+        <input type="submit"value="登録">
+    </form>
+    
+  <!--   <form id="button" action="/" method="POST" th:object="${formModel}">
         <h1 class="title">匿名投稿</h1>
         <label>タイトル</label><br>
         <input type="text" id="title" name="title" th:field="*{title}">
@@ -43,22 +54,29 @@
         <label>本文</label><br>
         <textarea name="message" id="message" cols="50" rows="10" th:field="*{message}"></textarea>
        	<p th:errors="*{message}"></p><br>
-      	<input type="hidden" name="data" th:text="${data}">
         <input type="submit"value="投稿する">
-    </form>
+    </form> -->
     <h1>内容</h1>
     <section>
-        <div class="box2" th:each="c : ${customers1}">
-        <!-- 	<label>id</label>
-        	<p class="w-nomal" th:text="${c.id}"></p> -->
-         	<label>投稿時間</label><hr>
-            <p class="w-nomal" th:text="${c.data}"></p>
-            <label>タイトル</label><hr>
-            <p class="w-nomal" th:text="${c.title}"></p>
-            <label>本文</label><hr>
-            <p  class="w-nomal"th:text="${c.message}"></p>
-        </div>
+    	<div th:each ="c : ${customer}">
+    		<p class="w-nomal" th:text="${c.id}"></p>
+    		<p class="w-nomal" th:text="${c.name}"></p>
+    		<p class="w-nomal" th:text="${c.mail}"></p>
+    		<p class="w-nomal" th:text="${c.age}"></p>
+    	</div>
     </section>
+    <!-- <section>
+        <div class="box2" th:each="m : ${message}">
+        	<label>id</label>
+        	<p class="w-nomal" th:text="${m.id}"></p>
+         	<label>投稿時間</label><hr>
+            <p class="w-nomal" th:text="${m.data}"></p>
+            <label>タイトル</label><hr>
+            <p class="w-nomal" th:text="${m.title}"></p>
+            <label>本文</label><hr>
+            <p class="w-nomal"th:text="${m.message}"></p>
+        </div>
+    </section> -->
     <script type="text/javascript" th:src="@{/js/index.js}"></script>
 </body>
 </html>

@@ -23,30 +23,36 @@ public class MainController {
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView indexGet(ModelAndView mv) {
-		List<UserData> customers1 = repository.findAll();
-		mv.addObject("customers1", customers1);
+		List<UserData> customer = repository.findAll();
+		mv.addObject("customer", customer);
+//		List<MessageData> message = messageRepository.findAll();
+//		mv.addObject("message", message);
 		mv.setViewName("index");
-		mv.addObject("formModel", new MessageData());
+//		mv.addObject("formModel", new MessageData());
+		mv.addObject("User", new UserData());
 		System.out.println("Get動いた");
 		return mv;
 	}
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)
-	public ModelAndView indexPost(@Validated @ModelAttribute("formModel") UserData userData , BindingResult result, ModelAndView mv) {
-		 Date dateObj = new Date();
-		 SimpleDateFormat format = new SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );
-		 // 日時情報を指定フォーマットの文字列で取得
-		 String display = format.format( dateObj );
-		 userData.setData(display);
-		 mv.setViewName("index");
-		 if (result.hasErrors()) {
-			 return mv;
-		 }
-		 // 保存
-		 repository.saveAndFlush(userData);
-		
-		 System.out.println("Post動いた");
-		 return new ModelAndView("redirect:/");
+	public ModelAndView indexPost(@ModelAttribute("User") UserData userData, ModelAndView mv) {
+//		 @Validated @ModelAttribute("formModel") MessageData messageData , BindingResult result,
+		mv.setViewName("index");
+//		if (result.hasErrors()) {
+//			 return mv;
+//		 } 
+		Date dateObj = new Date();
+		SimpleDateFormat format = new SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );
+		// 日時情報を指定フォーマットの文字列で取得
+		String display = format.format( dateObj );
+//		messageData.setData(display);
+		 
+		// 保存
+		repository.saveAndFlush(userData);
+//		messageRepository.saveAndFlush(messageData);
+
+		System.out.println("Post動いた");
+		return new ModelAndView("redirect:/");
 	}
 	
 	
