@@ -5340,3 +5340,10 @@ You have not agreed to the Xcode license agreements, please run 'sudo xcodebuild
 2021-02-28 18:27:38,989 [Worker-1072: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-02-28 18:27:38,989 [Worker-1072: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-02-28 18:27:38,989 [Worker-1072: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/aika/sts_workspace/SpringStudy23/src/test/resources
+2021-03-05 02:08:22,446 [Worker-1113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-05 02:08:22,447 [Worker-1113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-05 02:08:22,463 [Worker-1113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-05 02:08:22,654 [Worker-1113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2021-03-05 02:08:22,664 [Worker-1113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-05 02:08:22,665 [Worker-1113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-05 02:08:22,665 [Worker-1113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/aika/sts_workspace/SpringStudy23/src/test/resources

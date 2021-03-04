@@ -26,8 +26,8 @@ public class MainController {
 		List<UserData> customer = repository.findAll();
 		mv.addObject("customers", customer);
 		
-//		List<MessageData> messageData = messageRepository.findAll();
-//		mv.addObject("messageDatas", messageData);
+		List<MessageData> messageData = messageRepository.findAll();
+		mv.addObject("messageDatas", messageData);
 		
 		mv.setViewName("index");
 		mv.addObject("formModel", new MessageData());
