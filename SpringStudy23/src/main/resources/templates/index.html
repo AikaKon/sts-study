@@ -46,7 +46,7 @@
         <input type="submit"value="登録">
     </form>
     
-  <!--   <form id="button" action="/" method="POST" th:object="${formModel}">
+   <form id="button" action="/a" method="POST" th:object="${formModel}">
         <h1 class="title">匿名投稿</h1>
         <label>タイトル</label><br>
         <input type="text" id="title" name="title" th:field="*{title}">
@@ -55,18 +55,18 @@
         <textarea name="message" id="message" cols="50" rows="10" th:field="*{message}"></textarea>
        	<p th:errors="*{message}"></p><br>
         <input type="submit"value="投稿する">
-    </form> -->
+    </form> 
     <h1>内容</h1>
     <section>
-    	<div th:each ="c : ${customer}">
+    	<div th:each ="c : ${customers}">
     		<p class="w-nomal" th:text="${c.id}"></p>
     		<p class="w-nomal" th:text="${c.name}"></p>
     		<p class="w-nomal" th:text="${c.mail}"></p>
     		<p class="w-nomal" th:text="${c.age}"></p>
     	</div>
     </section>
-    <!-- <section>
-        <div class="box2" th:each="m : ${message}">
+   	<section>
+        <div class="box2" th:each="m : ${messageDatas}">
         	<label>id</label>
         	<p class="w-nomal" th:text="${m.id}"></p>
          	<label>投稿時間</label><hr>
@@ -74,9 +74,9 @@
             <label>タイトル</label><hr>
             <p class="w-nomal" th:text="${m.title}"></p>
             <label>本文</label><hr>
-            <p class="w-nomal"th:text="${m.message}"></p>
+            <p class="w-nomal" th:text="${m.message}"></p>
         </div>
-    </section> -->
+    </section>  
     <script type="text/javascript" th:src="@{/js/index.js}"></script>
 </body>
 </html>

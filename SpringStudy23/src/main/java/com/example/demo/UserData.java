@@ -35,10 +35,10 @@ public class UserData {
 	@Column(length = 50, nullable = false)
 	private String age;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade= CascadeType.ALL)
-    @JoinColumn(name = "message_id")
-    private List<MessageData> messageData = new ArrayList<>();
-	
+//	@OneToMany(fetch = FetchType.EAGER, cascade= CascadeType.ALL)
+//    @JoinColumn(name = "message_id")
+//    private List<MessageData> messageData = new ArrayList<>();
+//	
 //	@Column(nullable = false)
 //	@NotBlank
 //	@Size(min=1 , max=100 )
@@ -79,12 +79,12 @@ public class UserData {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	public List<MessageData> getMessage(){
-		return messageData;
-	}
-	public void setMessage(List<MessageData> messageData) {
-		this.messageData = messageData;
-	}
+//	public List<MessageData> getMessage(){
+//		return messageData;
+//	}
+//	public void setMessage(List<MessageData> messageData) {
+//		this.messageData = messageData;
+//	}
 	
 //	public String getMessage() {
 //		return message;

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +16,7 @@ import javax.validation.constraints.Size;
 public class MessageData {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private long id;
 	
 	@Column(nullable = false)
 	@NotBlank
@@ -30,9 +31,23 @@ public class MessageData {
 	@Size(min=1 , max=20 )
 	private String title;
 
-	@ManyToOne         //多対１の関係。
-	private UserData userData;
+//	@ManyToOne         //多対１の関係。
+//	@JoinColumn(name = "user_id")
+//	private UserData userData;
 	
+
+//	public UserData getUserData() {
+//		return userData;
+//	}
+//	public void setUserData(UserData userData) {
+//		this.userData = userData;
+//	}
+	public long getId() { 
+		return id;
+	}
+	public void setId(long id) { 
+		this.id = id;
+	}
 	
 	public String getMessage() {
 		return message;

@@ -24,32 +24,44 @@ public class MainController {
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView indexGet(ModelAndView mv) {
 		List<UserData> customer = repository.findAll();
-		mv.addObject("customer", customer);
-//		List<MessageData> message = messageRepository.findAll();
-//		mv.addObject("message", message);
+		mv.addObject("customers", customer);
+		
+//		List<MessageData> messageData = messageRepository.findAll();
+//		mv.addObject("messageDatas", messageData);
+		
 		mv.setViewName("index");
-//		mv.addObject("formModel", new MessageData());
+		mv.addObject("formModel", new MessageData());
 		mv.addObject("User", new UserData());
 		System.out.println("Get動いた");
 		return mv;
 	}
 	
+	// ユーザー登録
 	@RequestMapping(value="/", method = RequestMethod.POST)
-	public ModelAndView indexPost(@ModelAttribute("User") UserData userData, ModelAndView mv) {
-//		 @Validated @ModelAttribute("formModel") MessageData messageData , BindingResult result,
+	public ModelAndView toroku(@ModelAttribute("User") UserData userData, ModelAndView mv) {
 		mv.setViewName("index");
-//		if (result.hasErrors()) {
-//			 return mv;
-//		 } 
+		repository.saveAndFlush(userData);
+		return new ModelAndView("redirect:/");
+	}
+	
+	@RequestMapping(value="/a", method = RequestMethod.POST)
+	public ModelAndView indexPost(@Validated @ModelAttribute("formModel") MessageData messageData , BindingResult result,ModelAndView mv) {
+		 
+		mv.setViewName("index");
+		if (result.hasErrors()) {
+			 return mv;
+		 } 
 		Date dateObj = new Date();
 		SimpleDateFormat format = new SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );
 		// 日時情報を指定フォーマットの文字列で取得
 		String display = format.format( dateObj );
-//		messageData.setData(display);
-		 
+		messageData.setData(display);
+		
+//		MessageData message = new MessageData();
+//		message.setUserData(userData);
+		
 		// 保存
-		repository.saveAndFlush(userData);
-//		messageRepository.saveAndFlush(messageData);
+		messageRepository.saveAndFlush(messageData);
 
 		System.out.println("Post動いた");
 		return new ModelAndView("redirect:/");
