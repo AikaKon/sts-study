@@ -8,34 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-   <!--  <form action="/" method="POST" th:object="${formModel}">
-        <h1>ユーザー登録</h1>
-        <label>名前</label>
-        <input type="text" name="name">
-        <label>メール</label>
-        <input type="text" name="mail">
-        <label>パスワード</label>
-        <input type="text" name="pass">
-        <input type="submit" value="登録">
-    </form>
-
-    <h1>顧客リスト</h1>
-    <table>
-        <tr>
-            <th>登録者番号</th>
-            <th>名前</th>
-            <th>メールアドレス</th>
-            <th>パスワード</th>
-        </tr>
-        <tr  th:each="c : ${customers}">
-            <td th:text="${c.id}"></td>
-            <td th:text="${c.name}"></td>
-            <td th:text="${c.mail}"></td>
-            <td>見せられないよ</td>
-        </tr>
-    </table> 
- -->
- 	 <form id="button" action="/" method="POST" th:object="${User}">
+	<form id="button" action="/" method="POST" th:object="${userData}">
         <h1 class="title">登録</h1>
         <label>名前</label><br>
         <input type="text" id="name" name="name" th:field="*{name}"><br>
@@ -44,7 +17,8 @@
         <label>年齢</label><br>
         <input name="age" id="age" th:field="*{age}"><br>
         <input type="submit"value="登録">
-    </form>
+	</form>
+		
     
    <form id="button" action="/a" method="POST" th:object="${formModel}">
         <h1 class="title">匿名投稿</h1>
@@ -56,18 +30,23 @@
        	<p th:errors="*{message}"></p><br>
         <input type="submit"value="投稿する">
     </form> 
+    
     <h1>内容</h1>
-    <section>
+   	<section>
     	<div th:each ="c : ${customers}">
-    		<p class="w-nomal" th:text="${c.id}"></p>
+    		<p class="w-nomal" name="Userid" th:text="${c.id}"></p>
     		<p class="w-nomal" th:text="${c.name}"></p>
     		<p class="w-nomal" th:text="${c.mail}"></p>
     		<p class="w-nomal" th:text="${c.age}"></p>
+    		<a th:href="@{/mypage/{id}(id = ${c.id})}"><button>更新</button></a>
     	</div>
-    </section>
+    </section> 
+    
    	<section>
         <div class="box2" th:each="m : ${messageDatas}">
-        	<label>id</label>
+        	<label>ユーザーID</label>
+        	<p class="w-nomal" th:text="${m.userData.id}"></p>
+        	<label>メッセージid</label>
         	<p class="w-nomal" th:text="${m.id}"></p>
          	<label>投稿時間</label><hr>
             <p class="w-nomal" th:text="${m.data}"></p>

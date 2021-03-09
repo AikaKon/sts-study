@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>マイページ</title>
+  </head>
+  <body>
+  	<h1>ユーザー情報</h1>
+  	<section>
+    	<div th:each ="c : ${customers}">
+    		<p class="w-nomal" th:text="${c.id}"></p>
+    		<p class="w-nomal" th:text="${c.name}"></p>
+    		<p class="w-nomal" th:text="${c.mail}"></p>
+    		<p class="w-nomal" th:text="${c.age}"></p>
+    	</div>
+    	<table>
+			<form method="post" action="/mypage/" th:object="${userData}">
+				<input type="hidden" name="id" th:value="*{id}">
+				<tr>
+					<td><label>名前</label></td>
+					<td><input type="text" name="name" th:value="*{name}"></td>
+				</tr>
+				<tr>
+					<td><label>メールアドレス</label></td>
+					<td><input type="text" name="mail" th:value="*{mail}"></td>
+				</tr>
+				<tr>
+					<td><label>年齢</label></td>
+					<td><input type="text" name="age" th:value="*{age}"></td>
+				</tr>
+				<tr><td><input type="submit" value="更新"></td></tr>
+			</form>
+		</table>
+    </section>
+    
+ 
+   
+  </body>
+</html>

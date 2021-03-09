@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @Table
 public class MessageData {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable = false)
@@ -31,17 +31,18 @@ public class MessageData {
 	@Size(min=1 , max=20 )
 	private String title;
 
-//	@ManyToOne         //多対１の関係。
-//	@JoinColumn(name = "user_id")
-//	private UserData userData;
+	@ManyToOne         //多対１の関係。
+	@JoinColumn(name = "user_id")
+	private UserData userData;
 	
 
-//	public UserData getUserData() {
-//		return userData;
-//	}
-//	public void setUserData(UserData userData) {
-//		this.userData = userData;
-//	}
+	public UserData getUserData() {
+		return userData;
+	}
+	public void setUserData(UserData userData) {
+		this.userData = userData;
+	}
+	
 	public long getId() { 
 		return id;
 	}

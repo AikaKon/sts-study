@@ -22,7 +22,7 @@ import javax.xml.crypto.Data;
 @Table
 public class UserData {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private long id;
 	
@@ -35,9 +35,9 @@ public class UserData {
 	@Column(length = 50, nullable = false)
 	private String age;
 	
-//	@OneToMany(fetch = FetchType.EAGER, cascade= CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade= CascadeType.ALL)
 //    @JoinColumn(name = "message_id")
-//    private List<MessageData> messageData = new ArrayList<>();
+    private List<MessageData> messageData = new ArrayList<>();
 //	
 //	@Column(nullable = false)
 //	@NotBlank
