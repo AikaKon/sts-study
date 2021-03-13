@@ -39,6 +39,10 @@
     		<p class="w-nomal" th:text="${c.mail}"></p>
     		<p class="w-nomal" th:text="${c.age}"></p>
     		<a th:href="@{/mypage/{id}(id = ${c.id})}"><button>更新</button></a>
+    		<form action="/delete/" method="POST">
+    			<input type="hidden" name="id" th:value="${c.id}">
+                <input type="submit" value="削除">
+            </form>
     	</div>
     </section> 
     
@@ -56,6 +60,5 @@
             <p class="w-nomal" th:text="${m.message}"></p>
         </div>
     </section>  
-    <script type="text/javascript" th:src="@{/js/index.js}"></script>
 </body>
 </html>

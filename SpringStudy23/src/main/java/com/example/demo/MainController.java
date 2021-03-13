@@ -39,16 +39,6 @@ public class MainController {
 		System.out.println("Get動いた");
 		return mv;
 	}
-	
-//	// マイページ画面
-//	@RequestMapping(value="/mypage", method = RequestMethod.GET)
-//	public ModelAndView mypage(ModelAndView mv) {
-//		List<UserData> customer = userRepository.findAll();
-//		mv.addObject("customers", customer);
-//		
-//		mv.setViewName("mypage");
-//		return mv;
-//	}
 	 
 	// ユーザー登録
 	@RequestMapping(value="/", method = RequestMethod.POST)
@@ -56,11 +46,11 @@ public class MainController {
 		mv.setViewName("index");
 		userRepository.saveAndFlush(userData);
 		return new ModelAndView("redirect:/");
+		
 	}
 	
 	@RequestMapping(value="/a", method = RequestMethod.POST)
 	public ModelAndView indexPost(@Validated @ModelAttribute("formModel") MessageData messageData , BindingResult result,ModelAndView mv) {
-		//ユーザー登録をして、マイページ画面に飛ぶ、ゆーざ情報更新削除
 		// バリデーション
 		mv.setViewName("index");
 		if (result.hasErrors()) {
